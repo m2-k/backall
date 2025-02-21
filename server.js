@@ -131,10 +131,11 @@ app.post('/send-email', (req, res) => {
 app.post('/notify-admin', (req, res) => {
   const { ip, city, region, country, browser, referrer, visitTime } = req.body;
 
-  const mailOptions = {
-    from: `"British Elderly Care" <info@britishelderlycare.com>`,
+  const adminMailOptions = {
+    from: `"${name}" <${email}>`,
     to: 'info@britishelderlycare.com',
-    subject: 'New Visitor Alert - British Elderly Care',
+    replyTo: email,
+    subject: 'New Lead Appointment Request',
     html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
         <div style="background-color: #182033; color: white; padding: 10px; text-align: center;">
