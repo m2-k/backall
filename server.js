@@ -20,8 +20,8 @@ app.get("/home" ,async(req,res) => {
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'info@vr2tech.in', // Admin Email
-    pass: 'auwt pyaf bzkz vzdq', // Use an actual App Password
+    user: 'info@britishelderlycare.com', // Admin Email
+    pass: 'ojyj rdit vbpf bkpi', // Use an actual App Password
   },
 });
 
@@ -36,10 +36,11 @@ app.post('/send-email', (req, res) => {
 
   // 📩 Admin Email (Lead Notification)
   const adminMailOptions = {
-    from: 'info@vr2tech.in',
-    to: 'info@vr2tech.in',
+    from: `"${name}" <${email}>`,
+    to: 'info@britishelderlycare.com',
     replyTo: email,
     subject: 'New Lead Appointment Request',
+    
     html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
         <div style="background-color: #182033; color: white; padding: 10px; text-align: center;">
@@ -82,7 +83,7 @@ app.post('/send-email', (req, res) => {
 
     // 📩 Auto-Reply to the Client
     const clientMailOptions = {
-      from: 'info@vr2tech.in',
+      from: `"British Elderly Care" <info@britishelderlycare.com>`,
       to: email,
       subject: 'Thank You for Your Inquiry - British Elderly Care',
       html: `
@@ -131,8 +132,8 @@ app.post('/notify-admin', (req, res) => {
   const { ip, city, region, country, browser, referrer, visitTime } = req.body;
 
   const mailOptions = {
-    from: 'info@vr2tech.in',
-    to: 'info@vr2tech.in',
+    from: `"British Elderly Care" <info@britishelderlycare.com>`,
+    to: 'info@britishelderlycare.com',
     subject: 'New Visitor Alert - British Elderly Care',
     html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
